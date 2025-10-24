@@ -1,39 +1,31 @@
-# Analytics
-
 Analytics Notebook + Codex + Jupytext
 Visão geral
 
-# Analytics Notebook + Codex + Jupytext
+Par .ipynb ↔ .py no GitHub.
+Codex edita o .py por PR.
+Colab executa o .ipynb.
+jupytext --sync mantém os dois alinhados.
 
-## Visão geral
-Par `.ipynb` ↔ `.py` no GitHub.  
-Codex edita o `.py` por PR.  
-Colab executa o `.ipynb`.  
-`jupytext --sync` mantém os dois alinhados.
-
-## Estrutura do repositório
+Estrutura do repositório
 /SEU_REPO
-Analitycs.ipynb
-Analitycs.py # pareado via jupytext (py:percent)
+  Analitycs.ipynb
+  Analitycs.py            # pareado via jupytext (py:percent)
+  requirements.txt
+  README.md
+
+
 requirements.txt
-README.md
 
-go
-Copy code
-
-`requirements.txt`
 pandas
 numpy
 gspread
 gspread_dataframe
 python-dateutil
 
-sql
-Copy code
+1) Parear o notebook (uma vez)
 
-## 1) Parear o notebook (uma vez)
 No Colab ou local:
-```bash
+
 pip install jupytext nbstripout
 jupytext --set-formats ipynb,py:percent Analitycs.ipynb
 jupytext --sync Analitycs.ipynb
@@ -41,31 +33,32 @@ nbstripout --install   # opcional: diffs de .ipynb mais limpos
 git add Analitycs.ipynb Analitycs.py
 git commit -m "pair notebook with jupytext"
 git push
+
 2) Fluxo Colab → GitHub
+
 Editar no Colab e sincronizar antes de commitar:
 
-bash
-Copy code
 # no Colab (célula)
 !pip -q install jupytext
 !jupytext --sync /content/SEU_REPO/Analitycs.ipynb
 # depois: commit/push (se estiver clonado no Colab) ou File → Save a copy in GitHub
+
 3) Fluxo Codex (PR no .py) → Colab
+
 Após merge do PR:
 
-bash
-Copy code
 # no Colab (célula)
 !git -C /content/SEU_REPO pull
 !pip -q install jupytext
 !jupytext --sync /content/SEU_REPO/Analitycs.ipynb
+
+
 Abra e rode o notebook.
 
 4) Uso do Codex
+
 CLI (exemplo):
 
-bash
-Copy code
 npm i -g @openai/codex
 codex login
 # no diretório do repo
@@ -75,6 +68,8 @@ codex run "Editar Analitycs.py (jupytext py:percent):
 - Adicionar célula de CHECKS
 - Rodar testes locais se houver
 - Abrir PR"
+
+
 Prompts úteis:
 
 “Refatore a Célula 6 para criar session_effective e is_paid como especificado. Não renomear variáveis. Gerar diff e testes.”
@@ -84,19 +79,18 @@ Prompts úteis:
 “Ajustar funil para contar leads apenas em selection_final e dedupar pagamentos por stripe_payment_intent_id.”
 
 5) Célula 0 de setup no Colab
+
 Caso A — abriu o .ipynb direto do GitHub:
 
-python
-Copy code
 # Célula 0 — setup Jupytext no Colab (rodar 1x por sessão)
 !pip -q install jupytext nbstripout gspread gspread_dataframe python-dateutil
 !jupytext --set-formats ipynb,py:percent /content/Analitycs.ipynb
 !jupytext --sync /content/Analitycs.ipynb
 !nbstripout --install
+
+
 Caso B — clonando o repositório:
 
-python
-Copy code
 # Célula 0 — setup + repo
 !pip -q install jupytext nbstripout gspread gspread_dataframe python-dateutil
 %cd /content
@@ -105,7 +99,9 @@ Copy code
 !jupytext --set-formats ipynb,py:percent Analitycs.ipynb
 !jupytext --sync Analitycs.ipynb
 !nbstripout --install
+
 6) Regra de ouro da sincronização
+
 Editou no Colab (.ipynb) → rodar !jupytext --sync antes de commit/push.
 
 Merge/PR no GitHub (.py pelo Codex) → git pull no Colab → rodar !jupytext --sync.
@@ -114,8 +110,6 @@ Evite editar .ipynb e .py ao mesmo tempo entre syncs.
 Se renomear o notebook, rode --set-formats novamente.
 
 7) Célula de CHECKS rápidos (opcional)
-python
-Copy code
 # Célula de CHECKS — rode após df_all e df_pagos_canon e, se criadas, PRE_*
 import pandas as pd
 import numpy as np
@@ -206,22 +200,23 @@ print()
 
 print("=== RESULTADO FINAL ===")
 print("TUDO OK" if not issues else "ISSUES: " + "; ".join(issues))
+
 8) Makefile opcional
-bash
-Copy code
 sync:
 	jupytext --sync Analitycs.ipynb
 
 setup:
 	pip install -r requirements.txt jupytext nbstripout
 	nbstripout --install
+
+
 Uso:
 
-bash
-Copy code
 make setup
 make sync
+
 Solução de problemas
+
 Notebook não refletiu o PR: git pull + jupytext --sync.
 
 Conflitos: escolha o arquivo “fonte” mais recente e rode --sync.
@@ -229,7 +224,3 @@ Conflitos: escolha o arquivo “fonte” mais recente e rode --sync.
 Células sumiram no .py: confirme formato py:percent no --set-formats.
 
 Execução falhou no Colab: pip install -r requirements.txt antes de rodar.
-
-makefile
-Copy code
-::contentReference[oaicite:0]{index=0}
