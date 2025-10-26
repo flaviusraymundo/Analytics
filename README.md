@@ -17,13 +17,12 @@ Colab executa o `.ipynb`.
 │
 ├── notebooks/
 │   ├── Analytics.ipynb
-│   ├── report_demo.ipynb
-│   └── Cultura_from_Sheets.ipynb
+│   ├── Relatorio_Individual_v8.ipynb
+│   └── Cultura_v6.ipynb
 │
 ├── Analytics.py                # pareado com o .ipynb via jupytext (py:percent)
 ├── requirements.txt
 └── README.md
-
 
 ```
 
