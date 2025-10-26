@@ -221,7 +221,9 @@ def validate_taxonomy(expanded_df, tax_df):
     )
     grp = meta.groupby("id_norm", dropna=False)
     for k, sub in grp:
-        row = {"id_norm": k, "essencia": sub["essencia"].dropna().iloc[0] if "essencia" in sub else None}
+        has_ess = "essencia" in sub and sub["essencia"].notna().any()
+        ess_val = sub.loc[sub["essencia"].notna(), "essencia"].iloc[0] if has_ess else None
+        row = {"id_norm": k, "essencia": ess_val}
         for c in need_cols:
             row[f"has_{c}"] = bool(sub[c].notna().any()) if c in sub.columns else False
         coverage.append(row)
@@ -936,7 +938,9 @@ def validate_taxonomy(expanded_df, tax_df):
     )
     grp = meta.groupby("id_norm", dropna=False)
     for k, sub in grp:
-        row = {"id_norm": k, "essencia": sub["essencia"].dropna().iloc[0] if "essencia" in sub else None}
+        has_ess = "essencia" in sub and sub["essencia"].notna().any()
+        ess_val = sub.loc[sub["essencia"].notna(), "essencia"].iloc[0] if has_ess else None
+        row = {"id_norm": k, "essencia": ess_val}
         for c in need_cols:
             row[f"has_{c}"] = bool(sub[c].notna().any()) if c in sub.columns else False
         coverage.append(row)
