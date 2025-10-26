@@ -1,0 +1,2201 @@
+[
+  {
+    "id": "rabbit_orchid",
+    "nome": "Rabbit Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Branco",
+      "Violeta"
+    ],
+    "chakras": [
+      "Ch6",
+      "Ch7"
+    ],
+    "arquetipos": [
+      "Pensador Abstrato",
+      "Amante Feminina",
+      "Gerenciador Interno"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "autenticidade",
+      "revelar_da_alma"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "shy_blue_orchid",
+    "nome": "Shy Blue Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Azul"
+    ],
+    "chakras": [
+      "Ch5",
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Amante Masculino"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "abrir_caminhos",
+      "dinamismo",
+      "protecao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "white_spider_orchid",
+    "nome": "White Spider Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch4",
+      "Ch7"
+    ],
+    "arquetipos": [
+      "Amante Feminina"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "cuidar",
+      "servir"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "donkey_orchid",
+    "nome": "Donkey Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [],
+    "chakras": [],
+    "arquetipos": [
+      "Pai Interior",
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "resolucao_interior",
+      "desapego_injustica"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pink_fairy_orchid",
+    "nome": "Pink Fairy Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch2",
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Mãe Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "paz_interior"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "fringed_mantis_orchid",
+    "nome": "Fringed Mantis Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Verde"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "benevolencia"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "hybrid_pink_fairy_cowslip_orchid",
+    "nome": "Hybrid Pink Fairy Cowslip Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch2",
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Mãe Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "forca_interior"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "starts_spider_orchid",
+    "nome": "Starts Spider Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch6"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "objetividade",
+      "coragem"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "white_nymph_water_lily",
+    "nome": "White Nymph Water Lily",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Waterlily",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch4",
+      "Ch7"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "busca_espiritual",
+      "meditacao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "purple_nymph_water_lily",
+    "nome": "Purple Nymph Water Lily",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Waterlily",
+    "cor": [
+      "Violeta"
+    ],
+    "chakras": [
+      "Ch4",
+      "Ch7"
+    ],
+    "arquetipos": [
+      "Mãe Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "amor_desprendido",
+      "servico"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "spirit_faces",
+    "nome": "Spirit Faces",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [],
+    "chakras": [],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "visao_panoramica"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "blue_china_orchid",
+    "nome": "Blue China Orchid",
+    "camada": [
+      "C1",
+      "C3"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Azul"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch6",
+      "Ch7"
+    ],
+    "arquetipos": [
+      "Gerenciador Interno"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "vontade",
+      "foco_interior",
+      "quebrar_padroes"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "cowslip_orchid",
+    "nome": "Cowslip Orchid",
+    "camada": [
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Pai Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "aceitacao_como_iguais"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "illyarrie",
+    "nome": "Illyarrie",
+    "camada": [
+      "C2"
+    ],
+    "familia": "Eucalyptus",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "memorias_dolorosas"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "cowkicks",
+    "nome": "Cowkicks",
+    "camada": [
+      "C2",
+      "C5"
+    ],
+    "familia": "Triggerplant",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch1"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "trauma_choque",
+      "restauracao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "menzies_banksia",
+    "nome": "Menzies Banksia",
+    "camada": [
+      "C2",
+      "C5"
+    ],
+    "familia": "Banksia",
+    "cor": [
+      "Vermelho"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Amante Masculino"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "medo_da_dor",
+      "renascimento"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "ribbon_pea",
+    "nome": "Ribbon Pea",
+    "camada": [
+      "C2"
+    ],
+    "familia": "Kennedia",
+    "cor": [
+      "Vermelho"
+    ],
+    "chakras": [
+      "Ch1"
+    ],
+    "arquetipos": [
+      "Pai Interior",
+      "Amante Masculino"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "pavor_morte"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "fuchsia_gum",
+    "nome": "Fuchsia Gum",
+    "camada": [
+      "C2",
+      "C3"
+    ],
+    "familia": "Gum",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "claustrofobia"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "black_kangaroo_paw",
+    "nome": "Black Kangaroo Paw",
+    "camada": [
+      "C2",
+      "H"
+    ],
+    "familia": "Kangaroo Paw",
+    "cor": [
+      "Preto"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "ressentimento_profundo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "cape_bluebell",
+    "nome": "Cape Bluebell",
+    "camada": [
+      "C2",
+      "C4"
+    ],
+    "familia": "Sollya",
+    "cor": [
+      "Azul"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Relacionamentos"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "liberacao_do_passado"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "mauve_melaleuca",
+    "nome": "Mauve Melaleuca",
+    "camada": [
+      "C2",
+      "C4"
+    ],
+    "familia": "Melaleuca",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Amante Feminina"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "magua_profunda"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "violet_butterfly",
+    "nome": "Violet Butterfly",
+    "camada": [
+      "C2",
+      "H"
+    ],
+    "familia": "Triggerplant",
+    "cor": [
+      "Violeta"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "trauma_relacional"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pixie_mops",
+    "nome": "Pixie Mops",
+    "camada": [
+      "C2"
+    ],
+    "familia": "Verticordia",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Mãe Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "decepcao",
+      "dependencia"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "giving_hands",
+    "nome": "Giving Hands",
+    "camada": [
+      "C2",
+      "C5"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "vitimizacao",
+      "esgotamento_cuidador"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pink_everlasting",
+    "nome": "Pink Everlasting",
+    "camada": [
+      "C2",
+      "C4"
+    ],
+    "familia": "Rhodanthe",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Pai Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "vazio_emocional",
+      "sustento"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "candle_of_life",
+    "nome": "Candle of Life",
+    "camada": [
+      "C2",
+      "C5"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "desesperanca_existencial"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "purple_flag_flower",
+    "nome": "Purple Flag Flower",
+    "camada": [
+      "C2"
+    ],
+    "familia": "Patersonia",
+    "cor": [
+      "Violeta"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "liberacao_tensao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "yellow_flag_flower",
+    "nome": "Yellow Flag Flower",
+    "camada": [
+      "C2"
+    ],
+    "familia": "Patersonia",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "espirito_livre",
+      "stress"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "star_of_bethlehem",
+    "nome": "Star of Bethlehem",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Bulb",
+    "cor": [
+      "Violeta",
+      "Branco"
+    ],
+    "chakras": [
+      "Ch5",
+      "Ch7"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "solucoes_criativas"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "wooly_smokebush",
+    "nome": "Wooly Smokebush",
+    "camada": [
+      "C3",
+      "C4"
+    ],
+    "familia": "Smokebush",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch6",
+      "Ch7"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "humildade",
+      "discernimento"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pincushion_hakea",
+    "nome": "Pincushion Hakea",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Hakea",
+    "cor": [],
+    "chakras": [
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Amante Masculino",
+      "Pensador Abstrato"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "mente_aberta",
+      "medo_do_desconhecido"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "golden_waitsia",
+    "nome": "Golden Waitsia",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Waitsia",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Pensador Adaptativo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "perspectiva",
+      "perfeccionismo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "wattle",
+    "nome": "Wattle",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Acacia",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "sabedoria_do_mundo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "yellow_leschenaultia",
+    "nome": "Yellow Leschenaultia",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Leschenaultia",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Pensador Adaptativo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "arte_de_ouvir",
+      "anti_dogma"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "wild_violet",
+    "nome": "Wild Violet",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Violet",
+    "cor": [
+      "Azul"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "otimismo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "white_eremophila",
+    "nome": "White Eremophila",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Eremophila",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Pensador Adaptativo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "clareza_decisoria"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "southern_cross",
+    "nome": "Southern Cross",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Xanthosia",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "empatia",
+      "sabedoria"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "yellow_boronia",
+    "nome": "Yellow Boronia",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Boronia",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Pensador Adaptativo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "aquietar_mente"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "hairy_yellow_pea",
+    "nome": "Hairy Yellow Pea",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Daviesia",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "rigidez_atitudes"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "dampiera",
+    "nome": "Dampiera",
+    "camada": [
+      "C3",
+      "H"
+    ],
+    "familia": "Dampiera",
+    "cor": [
+      "Azul"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "liberar_emocoes",
+      "flexibilidade"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "brown_boronia",
+    "nome": "Brown Boronia",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Boronia",
+    "cor": [
+      "Marrom"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "ruminacao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "brachycome",
+    "nome": "Brachycome",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Brachycome",
+    "cor": [
+      "Azul"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Pensador Adaptativo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "apreciacao",
+      "anti_critica"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "orange_leschenaultia",
+    "nome": "Orange Leschenaultia",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Leschenaultia",
+    "cor": [
+      "Laranja"
+    ],
+    "chakras": [
+      "Ch3",
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "acao_suave"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "green_rose",
+    "nome": "Green Rose",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Rosa",
+    "cor": [
+      "Verde"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "progresso",
+      "disciplina"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "fuchsia_grevillea",
+    "nome": "Fuchsia Grevillea",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Grevillea",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4",
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "congruencia"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pale_sundew",
+    "nome": "Pale Sundew",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Drosera",
+    "cor": [],
+    "chakras": [
+      "Ch3",
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "luz_da_consciencia",
+      "anti_jogo_poder"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "fringed_lily_twiner",
+    "nome": "Fringed Lily Twiner",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Thysanotus",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4",
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Amante Feminina"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "gratidão",
+      "anti_manipulacao_emocional"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "orange_spiked_pea",
+    "nome": "Orange Spiked Pea",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Daviesia",
+    "cor": [
+      "Laranja"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Amante Masculino"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "expressao_frustracoes"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "golden_glory_grevillea",
+    "nome": "Golden Glory Grevillea",
+    "camada": [
+      "C3",
+      "C1"
+    ],
+    "familia": "Grevillea",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch3",
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "abertura",
+      "autenticidade"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "red_feather_flower",
+    "nome": "Red Feather Flower",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Verticordia",
+    "cor": [
+      "Vermelho"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "ajuda",
+      "proatividade"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "many_headed_dryandra",
+    "nome": "Many Headed Dryandra",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Dryandra",
+    "cor": [],
+    "chakras": [
+      "Ch3"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "fuga_compromisso"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "blue_leschenaultia",
+    "nome": "Blue Leschenaultia",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Leschenaultia",
+    "cor": [
+      "Azul"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "generosidade",
+      "liberar_posse"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "silver_princess",
+    "nome": "Silver Princess",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Eucalyptus caesia",
+    "cor": [
+      "Prata",
+      "Vermelho"
+    ],
+    "chakras": [
+      "Ch3"
+    ],
+    "arquetipos": [
+      "Amante Masculino"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "perseveranca"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "wooly_banksia",
+    "nome": "Wooly Banksia",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Banksia",
+    "cor": [],
+    "chakras": [
+      "Ch1",
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "realizacao_do_sonho",
+      "anti_fatalismo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "veronica",
+    "nome": "Veronica",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Veronica",
+    "cor": [],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Pai Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "pontes_comunicacao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "one_sided_bottlebrush",
+    "nome": "One Sided Bottlebrush",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Callistemon",
+    "cor": [],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "percepcao_coletivo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "queensland_bottlebrush",
+    "nome": "Queensland Bottlebrush",
+    "camada": [
+      "C3",
+      "H"
+    ],
+    "familia": "Callistemon",
+    "cor": [
+      "Verde"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "espirito_sociavel"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "correa",
+    "nome": "Correa",
+    "camada": [
+      "C4"
+    ],
+    "familia": "Correa",
+    "cor": [
+      "Laranja"
+    ],
+    "chakras": [
+      "Ch3",
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Pai Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "autoaceitacao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "urchin_dryandra",
+    "nome": "Urchin Dryandra",
+    "camada": [
+      "C4"
+    ],
+    "familia": "Dryandra",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Pai Interior",
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "valor_proprio"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "yellow_cone_flower",
+    "nome": "Yellow Cone Flower",
+    "camada": [
+      "C4"
+    ],
+    "familia": "Echinacea",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch5",
+      "Ch6"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "autoavaliacao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "parakeelya",
+    "nome": "Parakeelya",
+    "camada": [
+      "C4",
+      "H"
+    ],
+    "familia": "Calandrinia",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Relacionamentos"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "justica_assertiva"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "geraldton_wax",
+    "nome": "Geraldton Wax",
+    "camada": [
+      "C4"
+    ],
+    "familia": "Chamelaucium",
+    "cor": [],
+    "chakras": [
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "assumir_responsabilidades"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "snake_bush",
+    "nome": "Snake Bush",
+    "camada": [
+      "C4"
+    ],
+    "familia": "Hemiandra",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Amante Feminina"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "simplicidade_amor",
+      "carencia"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "happy_wanderer",
+    "nome": "Happy Wanderer",
+    "camada": [
+      "C4"
+    ],
+    "familia": "Hardenbergia",
+    "cor": [
+      "Violeta"
+    ],
+    "chakras": [
+      "Ch2",
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Amante Feminina"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "independencia_emocional"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "purple_enamel_orchid",
+    "nome": "Purple Enamel Orchid",
+    "camada": [
+      "C5"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Violeta"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch3"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "controle_centro"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "leafless_orchid",
+    "nome": "Leafless Orchid",
+    "camada": [
+      "C5",
+      "C1"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch7"
+    ],
+    "arquetipos": [
+      "Pensador Abstrato",
+      "Gerenciador Interno"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "esgotamento",
+      "centrar"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "red_beak_orchid",
+    "nome": "Red Beak Orchid",
+    "camada": [
+      "C5"
+    ],
+    "familia": "Orchid",
+    "cor": [
+      "Vermelho"
+    ],
+    "chakras": [
+      "Ch1"
+    ],
+    "arquetipos": [
+      "Relacionamentos"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "apatia",
+      "letargia"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pink_fountain_triggerplant",
+    "nome": "Pink Fountain Triggerplant",
+    "camada": [
+      "C5"
+    ],
+    "familia": "Triggerplant",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch2"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "retorno_forca_vital"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pink_trumpet_flower",
+    "nome": "Pink Trumpet Flower",
+    "camada": [
+      "C5"
+    ],
+    "familia": "Trumpet",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch3"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "foco_mental"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "reed_triggerplant",
+    "nome": "Reed Triggerplant",
+    "camada": [
+      "C5"
+    ],
+    "familia": "Triggerplant",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch2"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "rejuvenescimento"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "wa_smokebush",
+    "nome": "WA Smokebush",
+    "camada": [
+      "C5"
+    ],
+    "familia": "Smokebush",
+    "cor": [
+      "Branco"
+    ],
+    "chakras": [
+      "Ch1",
+      "Ch3"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "unidade_mente_corpo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "red_and_green_kangaroo_paw",
+    "nome": "Red and Green Kangaroo Paw",
+    "camada": [
+      "H"
+    ],
+    "familia": "Kangaroo Paw",
+    "cor": [
+      "Vermelho",
+      "Verde"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Amante Masculino"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "intimidade"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "purple_and_red_kangaroo_paw",
+    "nome": "Purple and Red Kangaroo Paw",
+    "camada": [
+      "H",
+      "C2"
+    ],
+    "familia": "Kangaroo Paw",
+    "cor": [
+      "Violeta",
+      "Vermelho"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Relacionamentos"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "transformacao_relacional"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "yellow_and_green_kangaroo_paw",
+    "nome": "Yellow and Green Kangaroo Paw",
+    "camada": [
+      "H"
+    ],
+    "familia": "Kangaroo Paw",
+    "cor": [
+      "Amarelo",
+      "Verde"
+    ],
+    "chakras": [
+      "Ch4",
+      "Ch5"
+    ],
+    "arquetipos": [
+      "Gerenciador Externo"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "tolerancia_ensino"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "catspaw",
+    "nome": "Catspaw",
+    "camada": [
+      "H"
+    ],
+    "familia": "Kangaroo Paw",
+    "cor": [
+      "Rosa",
+      "Laranja"
+    ],
+    "chakras": [
+      "Ch4",
+      "Ch5"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "falar_verdade"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "purple_eremophila",
+    "nome": "Purple Eremophila",
+    "camada": [
+      "H"
+    ],
+    "familia": "Eremophila",
+    "cor": [
+      "Roxo"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "serenidade_relacional"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "christmas_tree",
+    "nome": "Christmas Tree",
+    "camada": [
+      "P"
+    ],
+    "familia": "Proteaceae",
+    "cor": [
+      "Laranja"
+    ],
+    "chakras": [
+      "Ch3",
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Gerenciador Externo",
+      "Pai Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "responsabilidade_coletiva"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "balga_blackboy",
+    "nome": "Balga Blackboy",
+    "camada": [
+      "P",
+      "C3"
+    ],
+    "familia": "Xanthorrhoea",
+    "cor": [
+      "Verde",
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch3"
+    ],
+    "arquetipos": [
+      "Pai Interior",
+      "Gerenciador Interno"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "forca_masculina",
+      "metas"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "goddess_grasstree",
+    "nome": "Goddess Grasstree",
+    "camada": [
+      "P",
+      "C4"
+    ],
+    "familia": "Xanthorrhoea",
+    "cor": [
+      "Rosa",
+      "Verde"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Mae Interior",
+      "Mãe Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "maternagem",
+      "cuidado"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "macrozamia",
+    "nome": "Macrozamia",
+    "camada": [
+      "P",
+      "H"
+    ],
+    "familia": "Zamiaceae",
+    "cor": [
+      "Verde"
+    ],
+    "chakras": [
+      "Ch2",
+      "Ch4",
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Mae Interior",
+      "Pai Interior",
+      "Mãe Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "yin_yang",
+      "equilibrio_sexual"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "ursinia",
+    "nome": "Ursinia",
+    "camada": [
+      "P",
+      "C3"
+    ],
+    "familia": "Asteraceae",
+    "cor": [
+      "Amarelo"
+    ],
+    "chakras": [
+      "Ch3",
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Pensador Abstrato",
+      "Gerenciador Interno"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "coletivo",
+      "integracao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "tea_tree",
+    "nome": "Tea Tree",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Melaleuca",
+    "cor": [],
+    "chakras": [
+      "Ch5",
+      "Ch6"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "clarear_visao",
+      "objetivos"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "snake_vine",
+    "nome": "Snake Vine",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Hibbertia",
+    "cor": [],
+    "chakras": [
+      "Ch3"
+    ],
+    "arquetipos": [
+      "Pai Interior"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "negatividade_externa"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "pink_impatiens",
+    "nome": "Pink Impatiens",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Impatiens",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch6"
+    ],
+    "arquetipos": [
+      "Pensador Abstrato"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "pressao_ideais"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "antiseptic_bush",
+    "nome": "Antiseptic Bush",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Alyogyne/Leptospermum",
+    "cor": [],
+    "chakras": [],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "ambiente_limpo"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "hermit_flower_zazenzou",
+    "nome": "Hermit Flower (Zazenzou)",
+    "camada": [
+      "C3"
+    ],
+    "familia": "Desconhecida",
+    "cor": [],
+    "chakras": [],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "swan_river_myrtle",
+    "nome": "Swan River Myrtle",
+    "camada": [
+      "C4"
+    ],
+    "familia": "Myrtaceae",
+    "cor": [
+      "Rosa"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [],
+    "papel": "primaria",
+    "funcoes": [
+      "justica_sem_odio"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  },
+  {
+    "id": "red_leschenaultia",
+    "nome": "Red Leschenaultia",
+    "camada": [
+      "C3",
+      "H"
+    ],
+    "familia": "Leschenaultia",
+    "cor": [
+      "Vermelho"
+    ],
+    "chakras": [
+      "Ch4"
+    ],
+    "arquetipos": [
+      "Amante Masculino"
+    ],
+    "papel": "primaria",
+    "funcoes": [
+      "amolecer_coracao"
+    ],
+    "arestas": {
+      "suporta": [],
+      "contrabalanca": []
+    }
+  }
+]
