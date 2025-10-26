@@ -198,6 +198,40 @@ def load_taxonomy_full(p=Path(TAXONOMY_CSV)):
 
 TAX = load_taxonomy_full()
 
+# Mapear arquetipos → arquetipo se necessário
+if "arquetipo" not in TAX.columns and "arquetipos" in TAX.columns:
+    TAX["arquetipo"] = TAX["arquetipos"]
+
+# Validação de cobertura do dicionário
+def validate_taxonomy(expanded_df, tax_df):
+    if "id_norm" not in expanded_df.columns:
+        return pd.DataFrame({"missing_keys": []}), pd.DataFrame(columns=["id_norm","essencia"])
+    keys = expanded_df["id_norm"].dropna().unique()
+    tx_keys = set(tax_df["_key"].astype(str).str.lower()) if "_key" in tax_df.columns else set()
+    missing = [k for k in keys if k not in tx_keys]
+    # checar campos críticos
+    need_cols = ["tema_primario","barrett_principal","capacidade_negocio","cor_primaria","polaridade_cor","camada","chakra","arquetipo"]
+    coverage = []
+    # juntar meta
+    meta = expanded_df.merge(
+        tax_df.rename(columns={"_key":"id_norm"})[
+            ["id_norm","essencia"] + [c for c in need_cols if c in tax_df.columns]
+        ],
+        on="id_norm", how="left"
+    )
+    grp = meta.groupby("id_norm", dropna=False)
+    for k, sub in grp:
+        has_ess = "essencia" in sub and sub["essencia"].notna().any()
+        ess_val = sub.loc[sub["essencia"].notna(), "essencia"].iloc[0] if has_ess else None
+        row = {"id_norm": k, "essencia": ess_val}
+        for c in need_cols:
+            row[f"has_{c}"] = bool(sub[c].notna().any()) if c in sub.columns else False
+        coverage.append(row)
+    cov_df = pd.DataFrame(coverage)
+    if cov_df.empty:
+        cov_df = pd.DataFrame(columns=["id_norm","essencia"] + [f"has_{c}" for c in need_cols])
+    return pd.DataFrame({"missing_keys": missing}), cov_df
+
 
 # %% id="RoqHFWOGtk7Z"
 # ===========================
@@ -212,7 +246,7 @@ def score_group(rows: pd.DataFrame, weights=None, catalog: pd.DataFrame=None, sm
 
     tx_min = TAX[["_key","tema_primario","barrett_principal","capacidade_negocio",
                   "cor_primaria","polaridade_cor","camada","familia_botanica",
-                  "limitante","chakra"]].rename(columns={"_key":"id_norm"})
+                  "limitante","chakra","arquetipo"]].rename(columns={"_key":"id_norm"})
     base = base.merge(tx_min, on="id_norm", how="left")
 
     if "dominio" in base.columns:
@@ -241,11 +275,16 @@ def score_group(rows: pd.DataFrame, weights=None, catalog: pd.DataFrame=None, sm
         g = base.groupby(col, dropna=False)
         rows_ = []
         for k, sub in g:
-            k2 = "—" if pd.isna(k) or str(k).strip()=="" else str(k)
+            k2  = "—" if pd.isna(k) or str(k).strip()=="" else str(k)
             pos = (sub["valence"]=="positive").sum()
             neg = (sub["valence"]=="negative").sum()
             sc  = sub["w"].sum()
-            rows_.append({"attr":col,"value":k2,"score":sc,"pos":pos,"neg":neg,"count":len(sub)})
+            denom = pos + neg + 2*smooth
+            rows_.append({
+                "attr": col, "value": k2, "score": sc, "pos": pos, "neg": neg, "count": len(sub),
+                "pos_rate": round((pos + smooth)/denom, 4),
+                "neg_rate": round((neg + smooth)/denom, 4),
+            })
         out[col] = pd.DataFrame(rows_).sort_values(["score","count"], ascending=[False,False]).reset_index(drop=True)
 
     pre_pos = set(base[(base["stage"]=="preselection") & (base["valence"]=="positive")]["id_norm"])
@@ -253,6 +292,25 @@ def score_group(rows: pd.DataFrame, weights=None, catalog: pd.DataFrame=None, sm
     kept = len(pre_pos & fin_pos)
     ret = round(100*kept/max(1,len(pre_pos)),2) if len(pre_pos)>0 else None
     neg_share = round(100*(base["valence"]=="negative").mean(),2) if len(base) else 0.0
+
+    from math import log2
+
+    smooth_local = smooth
+
+    def _ent(v):
+        if not len(v):
+            return None
+        total = sum(v) + smooth_local*len(v)
+        H = 0.0
+        for c in v:
+            p = (c + smooth_local)/total
+            H += -p*(log2(p) if p>0 else 0.0)
+        Hmax = log2(len(v)) if len(v)>1 else 1.0
+        return round(H/Hmax, 4)
+
+    finp = base[(base["stage"]=="selection_final") & (base["valence"]=="positive")]
+    ent_dom   = _ent(finp["dominio"].value_counts().tolist())
+    ent_chak  = _ent(finp["chakra"].value_counts().tolist())
 
     ent = {"pos": {"pct_limitantes":0.0,"pct_camada2_3":0.0},
            "neg": {"pct_limitantes":0.0,"pct_camada2_3":0.0}}
@@ -263,9 +321,11 @@ def score_group(rows: pd.DataFrame, weights=None, catalog: pd.DataFrame=None, sm
                 ent[v]["pct_limitantes"] = float((sub["limitante"].astype(str)=="1").mean())
                 ent[v]["pct_camada2_3"] = float(sub["camada"].astype(str).str.contains("Camada2|Camada3", case=False, na=False).mean())
 
-    return out, {"retencao_pos":ret, "neg_share":neg_share, "entropia":ent}
+    return out, {"retencao_pos": ret, "neg_share": neg_share,
+                 "entropy_dom_final": ent_dom, "entropy_chakra_final": ent_chak,
+                 "entropia": ent}
 
-def aggregate_company(expanded_rows, weights=None, catalog=None, smooth=1.0, min_n=5):
+def aggregate_company(expanded_rows, weights=None, catalog=None, smooth=1.0, min_n=5, apply_min_filter=False):
     weights = weights or DEFAULT_WEIGHTS
     full = expanded_rows.copy()
 
@@ -277,9 +337,15 @@ def aggregate_company(expanded_rows, weights=None, catalog=None, smooth=1.0, min
             rec[f"{st}_{val}"] = ((sub["stage"]==st) & (sub["valence"]==val)).sum()
         rec["sessions"] = sub["session_effective"].nunique() if "session_effective" in sub.columns else None
         ov.append(rec)
-    OVERVIEW = pd.DataFrame(ov).sort_values(["tenant_id","team"]).reset_index(drop=True)
+    overview_cols = ["tenant_id","team","preselection_positive","preselection_negative",
+                     "selection_final_positive","selection_final_negative","sessions"]
+    OVERVIEW = pd.DataFrame(ov)
+    if len(OVERVIEW):
+        OVERVIEW = OVERVIEW.sort_values(["tenant_id","team"]).reset_index(drop=True)
+    else:
+        OVERVIEW = pd.DataFrame(columns=overview_cols)
 
-    blocks, reten, vies, attrs_rows = [], [], [], []
+    blocks, reten, vies, attrs_rows, ent_rows = [], [], [], [], []
     for (tenant, team), sub in full.groupby(["tenant_id","team"], dropna=False):
         subN = len(sub)
         sc_tables, metrics = score_group(sub, weights=weights, catalog=catalog, smooth=smooth)
@@ -291,7 +357,9 @@ def aggregate_company(expanded_rows, weights=None, catalog=None, smooth=1.0, min
             for _, r in df2.iterrows():
                 attrs_rows.append({"tenant_id":tenant or "DEFAULT","team":team or "DEFAULT",
                                    "attr":r["attr"],"value":r["value"],
-                                   "score":r["score"],"count":r["count"],"pos":r["pos"],"neg":r["neg"]})
+                                   "score":r.get("score"),"count":r.get("count"),
+                                   "pos":r.get("pos"),"neg":r.get("neg"),
+                                   "pos_rate":r.get("pos_rate"),"neg_rate":r.get("neg_rate")})
         reten.append({"tenant_id":tenant or "DEFAULT","team":team or "DEFAULT","retencao_pos":metrics["retencao_pos"]})
         neg_pct = round(100*(sub["valence"]=="negative").mean(),2) if subN else 0.0
         vies.append({"tenant_id":tenant or "DEFAULT","team":team or "DEFAULT",
@@ -299,12 +367,35 @@ def aggregate_company(expanded_rows, weights=None, catalog=None, smooth=1.0, min
                      "n_sessoes": sub["session_effective"].nunique() if "session_effective" in sub.columns else None,
                      "pct_negativos":neg_pct,
                      "n_min_ok": subN >= min_n})
+        ent_rows.append({
+            "tenant_id": tenant or "DEFAULT",
+            "team": team or "DEFAULT",
+            "entropy_dom_final": metrics.get("entropy_dom_final"),
+            "entropy_chakra_final": metrics.get("entropy_chakra_final")
+        })
 
-    HEATMAP = pd.concat(blocks, ignore_index=True) if blocks else pd.DataFrame(columns=["tenant_id","team","attr","value","score","pos","neg","count"])
-    RETENCAO = pd.DataFrame(reten).sort_values(["tenant_id","team"]).reset_index(drop=True)
-    VIESES   = pd.DataFrame(vies).sort_values(["tenant_id","team"]).reset_index(drop=True)
-    ATTRS    = pd.DataFrame(attrs_rows).sort_values(["tenant_id","team","attr","score"], ascending=[True,True,True,False]).reset_index(drop=True)
-    return {"OVERVIEW": OVERVIEW, "HEATMAP": HEATMAP, "RETENCAO": RETENCAO, "VIESES": VIESES, "ATTRS": ATTRS}
+    HEATMAP = pd.concat(blocks, ignore_index=True) if blocks else pd.DataFrame(columns=["tenant_id","team","attr","value","score","pos","neg","count","pos_rate","neg_rate"])
+    RETENCAO = pd.DataFrame(reten)
+    if len(RETENCAO):
+        RETENCAO = RETENCAO.sort_values(["tenant_id","team"]).reset_index(drop=True)
+    else:
+        RETENCAO = pd.DataFrame(columns=["tenant_id","team","retencao_pos"])
+    VIESES   = pd.DataFrame(vies)
+    if len(VIESES):
+        VIESES = VIESES.sort_values(["tenant_id","team"]).reset_index(drop=True)
+    else:
+        VIESES = pd.DataFrame(columns=["tenant_id","team","n_registros","n_sessoes","pct_negativos","n_min_ok"])
+    ATTRS    = pd.DataFrame(attrs_rows, columns=["tenant_id","team","attr","value","score","count","pos","neg","pos_rate","neg_rate"])
+    if len(ATTRS):
+        ATTRS = ATTRS.sort_values(["tenant_id","team","attr","score"], ascending=[True,True,True,False]).reset_index(drop=True)
+    if apply_min_filter:
+        ok = set(map(tuple, VIESES.query("n_min_ok == True")[["tenant_id","team"]].to_numpy()))
+        if len(HEATMAP):
+            HEATMAP = HEATMAP[[ (r.tenant_id, r.team) in ok for _, r in HEATMAP.iterrows() ]].reset_index(drop=True)
+        if len(ATTRS):
+            ATTRS   = ATTRS[[   (r.tenant_id, r.team) in ok for _, r in ATTRS.iterrows() ]].reset_index(drop=True)
+    ENTROPIA = pd.DataFrame(ent_rows, columns=["tenant_id","team","entropy_dom_final","entropy_chakra_final"]).sort_values(["tenant_id","team"]).reset_index(drop=True)
+    return {"OVERVIEW": OVERVIEW, "HEATMAP": HEATMAP, "RETENCAO": RETENCAO, "VIESES": VIESES, "ATTRS": ATTRS, "ENTROPIA": ENTROPIA}
 
 
 # %% id="NnBFrk8QtqKj"
@@ -314,6 +405,8 @@ def aggregate_company(expanded_rows, weights=None, catalog=None, smooth=1.0, min
 df = read_leads(ss_in, TAB_IN)
 df = df.dropna(subset=["selection"])
 df = df[df["stage"].isin(["preselection","selection_final"])]
+if MODE_FILTER_ENABLED and "mode" in df.columns:
+    df = df[df["mode"].isin(MODE_ALLOWED)]
 
 expanded = []
 for _, row in df.iterrows():
@@ -333,67 +426,53 @@ expanded = pd.DataFrame(expanded)
 if len(expanded):
     expanded["essence_id"] = expanded["essence_name"].map(_norm)
     expanded["id_norm"] = expanded["essence_id"].astype(str).str.lower()
+else:
+    expanded["essence_id"] = pd.Series(dtype=str)
+    expanded["id_norm"] = pd.Series(dtype=str)
 print("Registros expandidos:", len(expanded))
 
+MISSING, TAX_COVER = validate_taxonomy(expanded, TAX)
+# escreve abas de validação (opcional)
+try:
+    write_tab(ss_out, "CULT_TAX_MISSING", MISSING)
+    write_tab(ss_out, "CULT_TAX_COVER", TAX_COVER)
+except Exception as e:
+    print("Aviso: não foi possível escrever abas de TAX (ok seguir).", e)
+
 CAT = load_catalog(CAT_PATHS)
-packs = aggregate_company(expanded, catalog=CAT, min_n=MIN_N, smooth=SMOOTH)
+packs = aggregate_company(expanded, catalog=CAT, min_n=MIN_N, smooth=SMOOTH, apply_min_filter=APPLY_MIN_N_FILTER)
 
 write_tab(ss_out, "CULT_OVERVIEW", packs["OVERVIEW"])
 write_tab(ss_out, "CULT_HEATMAP",  packs["HEATMAP"])
 write_tab(ss_out, "CULT_RETENCAO", packs["RETENCAO"])
 write_tab(ss_out, "CULT_VIESES",   packs["VIESES"])
 write_tab(ss_out, "CULT_ATTRS",    packs["ATTRS"])
+write_tab(ss_out, "CULT_ENTROPIA", packs["ENTROPIA"])
 
 # %% id="mb25RL9Httnh"
 # ===========================
 # Desejado + GAP
 # ===========================
-CAMADA1_SET = {
-    "blue china orchid","cowslip orchid","donkey orchid","rabbit orchid","shy blue orchid",
-    "pink fairy orchid","white nymph water lily","purple nymph water lily",
-    "fringed mantis orchid","hybrid pink fairy cowslip orchid","starts spider orchid","white spider orchid"
-}
-CAMADA3_SET = {
-    "candle of life","purple enamel orchid","giving hands","leafless orchid",
-    "pink fountain triggerplant","pink trumpet flower","red beak orchid",
-    "reed triggerplant","wa smokebush","silver princess"
-}
-TEMAS_ALVO = {"Foco/Clareza","Conversas/Feedback","Reconhecimento","Energia"}
-
-def _top_n_keys(expanded_rows, n=10):
-    return expanded_rows["id_norm"].value_counts().head(n).index.tolist()
 
 def build_desired_auto(expanded_rows, tax_df, k_total=12):
     freq = expanded_rows["id_norm"].value_counts()
-    pool = tax_df.set_index("_key").loc[freq.index].copy()
-    pool["freq"] = freq.values
-    pool = pool[~pool["camada"].astype(str).str.contains("Camada3", case=False, na=False)].copy()
-    def prefer_equivalents(lst):
-        names = set(lst)
-        if "pincushion hakea" in names:
-            names.discard("pincushion hakea")
-            for alt in ["correa","ribbon pea"]:
-                if alt in tax_df["_key"].values: names.add(alt)
-        return list(names)
-    top10 = _top_n_keys(expanded_rows, n=10)
-    top10_c1 = [k for k in top10 if k in CAMADA1_SET]
-    desejado = top10_c1[:]
-    if len(top10_c1)==0:
-        c1_all = pool[pool.index.isin(CAMADA1_SET)].sort_values("freq", ascending=False)
-        if len(c1_all)>0: desejado.append(c1_all.index[0])
-    themed = pool[pool["tema_primario"].isin(TEMAS_ALVO)].sort_values(["tema_primario","freq"], ascending=[True,False])
-    for k in themed.index:
-        if len(desejado) >= k_total: break
-        if k in desejado: continue
-        if "Camada2" in str(pool.loc[k,"camada"]):
-            alt_c1 = pool.index.intersection(CAMADA1_SET)
-            same = pool.loc[alt_c1][pool.loc[alt_c1,"tema_primario"]==pool.loc[k,"tema_primario"]]
-            if len(same)>0: continue
+    if freq.empty:
+        return tax_df.head(0).copy()
+    tax_idx = tax_df.set_index("_key")
+    pool = tax_idx.reindex(freq.index)
+    pool["freq"] = freq
+    pool = pool.dropna(how="all").copy()
+    # priorizar Camada1 e evitar Camada3:
+    pool_c1 = pool[pool["camada"].astype(str).str.contains("Camada1", case=False, na=False)]
+    pool_noc3 = pool[~pool["camada"].astype(str).str.contains("Camada3", case=False, na=False)]
+    top_c1 = pool_c1.sort_values("freq", ascending=False).index.tolist()
+    desejado = top_c1[:4]  # sementes
+    for k in pool_noc3.sort_values("freq", ascending=False).index:
+        if k in desejado:
+            continue
         desejado.append(k)
-    if len(desejado) < k_total:
-        resto = [k for k in pool.sort_values("freq", ascending=False).index if k not in desejado]
-        desejado += resto[:(k_total - len(desejado))]
-    desejado = prefer_equivalents(desejado)
+        if len(desejado) >= k_total:
+            break
     des = tax_df.set_index("_key").loc[desejado].reset_index()
     return des
 
@@ -425,7 +504,10 @@ cur_tema = (cur_tema/cur_tema.sum()).sort_values(ascending=False) if cur_tema.su
 cur_cap = expanded_enriched["capacidade_negocio"].value_counts()
 cur_cap = (cur_cap/cur_cap.sum()).sort_values(ascending=False) if cur_cap.sum()>0 else cur_cap
 
-DES = build_desired_auto(expanded_enriched, TAX, k_total=12)
+base_for_desired = expanded_enriched
+if DESIRED_FROM_FINAL_POS:
+    base_for_desired = base_for_desired[(base_for_desired["stage"]=="selection_final") & (base_for_desired["valence"]=="positive")]
+DES = build_desired_auto(base_for_desired, TAX, k_total=12)
 DES.to_csv("/mnt/data/desejado_auto.csv", index=False)
 
 des_bar = dist_from_keys(DES["_key"], "barrett_principal", TAX)
@@ -439,6 +521,12 @@ GAP_CAPS    = gap_table(cur_cap, des_cap, "Capacidade")
 GAP_BARRETT.to_csv("/mnt/data/gap_barrett.csv")
 GAP_TEMAS.to_csv("/mnt/data/gap_temas.csv")
 GAP_CAPS.to_csv("/mnt/data/gap_capacidades.csv")
+
+if WRITE_DESIRED_TO_SHEET:
+    write_tab(ss_out, "CULT_DESEJADO", DES[["essencia","tema_primario","barrett_principal","camada"]])
+    write_tab(ss_out, "CULT_GAP_BARRETT", GAP_BARRETT.reset_index())
+    write_tab(ss_out, "CULT_GAP_TEMAS",   GAP_TEMAS.reset_index())
+    write_tab(ss_out, "CULT_GAP_CAPS",    GAP_CAPS.reset_index())
 
 
 # %% id="1jvG6gxrtx8Z"
@@ -478,6 +566,12 @@ if EXPORT_MD:
         else:    lines.append("_sem dados_\n")
     else:
         lines.append("_sem dados_\n")
+    lines.append("## Entropia por time (FINAL +)\n")
+    lines.append(md_tbl(packs["ENTROPIA"]))
+    lines.append("## HEATMAP com proporções suavizadas\n")
+    cols = ["tenant_id","team","attr","value","score","count","pos","neg","pos_rate","neg_rate"]
+    hm = packs["HEATMAP"][cols] if set(cols).issubset(packs["HEATMAP"].columns) else packs["HEATMAP"]
+    lines.append(md_tbl(hm))
 
     # Desejado + GAP
     lines.append("## Desejado automático (12)\n")
@@ -844,7 +938,9 @@ def validate_taxonomy(expanded_df, tax_df):
     )
     grp = meta.groupby("id_norm", dropna=False)
     for k, sub in grp:
-        row = {"id_norm": k, "essencia": sub["essencia"].dropna().iloc[0] if "essencia" in sub else None}
+        has_ess = "essencia" in sub and sub["essencia"].notna().any()
+        ess_val = sub.loc[sub["essencia"].notna(), "essencia"].iloc[0] if has_ess else None
+        row = {"id_norm": k, "essencia": ess_val}
         for c in need_cols:
             row[f"has_{c}"] = bool(sub[c].notna().any()) if c in sub.columns else False
         coverage.append(row)
