@@ -34,6 +34,10 @@ numpy
 gspread
 gspread_dataframe
 python-dateutil
+matplotlib
+tabulate
+google-auth
+jupytext
 ```
 
 ## 1) Parear o notebook (uma vez)
