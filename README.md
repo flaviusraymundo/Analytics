@@ -8,11 +8,19 @@ Colab executa o `.ipynb`.
 
 ## Estrutura do repositório
 ```
-/SEU_REPO
+/SEU_REPO  
+   data/
+  essencias_88_enriquecido.json
+  essencias_barrett_cvf_denison_iso_v3.csv
+  team_map.csv   # opcional
+notebooks/
   Analitycs.ipynb
-  Analitycs.py            # pareado via jupytext (py:percent)
-  requirements.txt
-  README.md
+  report_demo.ipynb
+  Cultura_from_Sheets.ipynb
+Analitycs.py            # pareado via jupytext (py:percent)
+requirements.txt
+README.md
+
 ```
 
 ### requirements.txt
