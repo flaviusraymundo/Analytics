@@ -1,2 +1,1 @@
 formats = "ipynb,py:percent"
-sync_markers = true
